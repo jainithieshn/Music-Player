@@ -8,16 +8,18 @@ let Player = () => {
   const [song, setsong] = useState(songdata);
   const [isplaying, setisplaying] = useState(false);
   const [currentsong, setcurrentsong] = useState(songdata[0]);
-  console.log(currentsong, currentsong.song);
+  
   const audioRef = useRef();
   return (
     <>
-      <audio src={currentsong.song1} ref={audioRef}></audio>
+      <audio src={currentsong.songPublic} ref={audioRef}></audio>
       <MusicPlayer
         song={song}
         setsong={setsong}
         isplaying={isplaying}
         setisplaying={setisplaying}
+        currentsong={currentsong}
+        
         audioRef={audioRef}
       />
     </>

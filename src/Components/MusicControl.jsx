@@ -17,6 +17,12 @@ let MusicPlayer = ( {audioRef, isplaying, setisplaying} ) => {
             audioRef.current.pause();
         }
     }
+
+    let skipback = () => {
+        
+        const index = currentSong
+        if
+    }
     return(
         <>
             <div className="outer-container">
@@ -33,7 +39,7 @@ let MusicPlayer = ( {audioRef, isplaying, setisplaying} ) => {
                     />
                     <br />
                     <IconButton>
-                        <SkipPreviousRounded />
+                        <SkipPreviousRounded onClick={skipback}/>
                     </IconButton>
                     <IconButton
                     onClick={playpause}
