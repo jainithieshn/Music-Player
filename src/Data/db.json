@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "name":  "Ennai Vittu",
+        "title": "Hits Different",
+        "image": "Pictures/ennai-vittu.jpg"
+    },
+    {
+        "id": 2,
+        "name":  "Trending Now",
+        "title": "Hits Different",
+        "image": "Pictures/arabic-kuthu.jpg"
+    },
+    {
+        "id": 3,
+        "name":  "Kadhal Kadhal",
+        "title": "Hits Different",
+        "image": "Pictures/engeyum-kadhal.jpg"
+    },
+    {
+        "id": 4,
+        "name":  "High On Love",
+        "title": "Hits Different",
+        "image": "Pictures/moonu.jpg"
+    },
+    {
+        "id": 5,
+        "name":  "Top Tamil Kuthu",
+        "title": "Hits Different",
+        "image": "Pictures/pathala.jpg"
+    },
+    {
+        "id": 6,
+        "name":  "Anirudh",
+        "title": "Recommended Artist Radio",
+        "image": "Pictures/anirudh.jpg"
+    },
+    {
+        "id": 7,
+        "name":  "Yuvan",
+        "title": "Recommended Artist Radio",
+        "image": "Pictures/yuvan.jpg"
+    },
+    {
+        "id": 8,
+        "name":  "AR Rahman",
+        "title": "Recommended Artist Radio",
+        "image": "Pictures/rahman.jpg"
+    },
+    {
+        "id": 9,
+        "name":  "Ilayaraj",
+        "title": "Recommended Artist Radio",
+        "image": "Pictures/ilayaraj.jpg"
+    }
+]
