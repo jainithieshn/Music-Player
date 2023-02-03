@@ -1,26 +1,54 @@
-import React, { useState } from "react";
-import MusicPlayer from "./MusicControl";
-import {songdata} from "../Data/SongData";
-// import audio from '../Songs/Darshana.mp3'
-import { useRef } from "react";
+import React, { useRef, useState, useEffect, useContext } from "react";
+import "../App.css";
+import MusicControlBar from "./MusicControlBar";
+import { SongData } from "../Data/Songs";
+import { songContext, songs, userContext } from "../Data/userContext";
 
-let Player = () => {
-  const [song, setsong] = useState(songdata);
-  const [isplaying, setisplaying] = useState(false);
-  const [currentsong, setcurrentsong] = useState(songdata[0]);
+const Player = () => {
+  const { song, setsong } = useContext(songs);
+  const [value, setValue] = useState(0);
+  const [loopActive, setloopActive] = useState(false);
+  const { currentsong, setcurrentsong } = useContext(songContext);
+  const { isplaying, setisplaying } = useContext(userContext);
   
-  const audioRef = useRef();
+  useEffect(() => {
+    if (isplaying) {
+      audioElement.current.play();
+    } else {
+      audioElement.current.pause();
+    }
+  }, [isplaying, currentsong]);
+
+  const onplaying = () => {
+    const duration = audioElement.current.duration;
+    const cur_time = audioElement.current.currentTime;
+
+    setcurrentsong({
+      ...currentsong,
+      progress: (cur_time / duration) * 100,
+      length: duration,
+    });
+    setValue(`${currentsong.progress}`);
+  };
+  const audioElement = useRef();
+
   return (
     <>
-      <audio src={currentsong.songPublic} ref={audioRef}></audio>
-      <MusicPlayer
+      <audio
+        src={require("../Songs/" + currentsong.musicName)}
+        ref={audioElement}
+        onTimeUpdate={onplaying}
+      />
+      <MusicControlBar
         song={song}
-        setsong={setsong}
-        isplaying={isplaying}
+        setSong={setsong}
+        isPlaying={isplaying}
         setisplaying={setisplaying}
-        currentsong={currentsong}
-        
-        audioRef={audioRef}
+        audioElement={audioElement}
+        currentSong={currentsong}
+        setcurrentSong={setcurrentsong}
+        loopActive={loopActive}
+        value={value}
       />
     </>
   );
